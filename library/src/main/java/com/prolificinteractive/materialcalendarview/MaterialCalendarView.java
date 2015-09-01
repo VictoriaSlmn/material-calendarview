@@ -50,7 +50,7 @@ import java.util.List;
  * <p>
  * When selecting a date out of range, or when the range changes so the selection becomes outside,
  * The date closest to the previous selection will become selected. This will also trigger the
- * {@linkplain com.prolificinteractive.materialcalendarview.OnDateChangedListener}
+ * {@linkplain OnDateSelectedListener}
  * </p>
  * <p>
  * <strong>Note:</strong> if this view's size isn't divisible by 7,
@@ -81,11 +81,11 @@ public class MaterialCalendarView extends ViewGroup {
 
     private final MonthView.Callbacks monthViewCallbacks = new MonthView.Callbacks() {
         @Override
-        public void onDateChanged(CalendarDay date) {
+        public void onDateSelected(CalendarDay date) {
             setSelectedDate(date);
 
             if(listener != null) {
-                listener.onDateChanged(MaterialCalendarView.this, date);
+                listener.onDateSelected(MaterialCalendarView.this, date);
             }
         }
     };
@@ -121,7 +121,7 @@ public class MaterialCalendarView extends ViewGroup {
     private CalendarDay minDate = null;
     private CalendarDay maxDate = null;
 
-    private OnDateChangedListener listener;
+    private OnDateSelectedListener listener;
     private OnMonthChangedListener monthListener;
 
     private int accentColor = 0;
@@ -297,7 +297,7 @@ public class MaterialCalendarView extends ViewGroup {
      *
      * @param listener thing to be notified
      */
-    public void setOnDateChangedListener(OnDateChangedListener listener) {
+    public void setOnDateChangedListener(OnDateSelectedListener listener) {
         this.listener = listener;
     }
 

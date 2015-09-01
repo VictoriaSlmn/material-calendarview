@@ -244,22 +244,12 @@ class MonthPagerAdapter extends PagerAdapter {
         CalendarDay prevDate = selectedDate;
         notifyDataSetChanged();
         setSelectedDate(prevDate);
-        if (prevDate != null) {
-            if (!prevDate.equals(selectedDate)) {
-                callbacks.onDateChanged(selectedDate);
-            }
-        }
     }
 
     public void setSelectedDate(@Nullable CalendarDay date) {
-        CalendarDay prevDate = selectedDate;
         this.selectedDate = getValidSelectedDate(date);
         for (MonthView monthView : currentViews) {
             monthView.setSelectedDate(selectedDate);
-        }
-
-        if (date == null && prevDate != null) {
-            callbacks.onDateChanged(null);
         }
     }
 

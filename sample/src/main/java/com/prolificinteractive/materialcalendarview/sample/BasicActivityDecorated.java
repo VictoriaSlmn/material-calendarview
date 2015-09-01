@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
-import com.prolificinteractive.materialcalendarview.OnDateChangedListener;
+import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 import com.prolificinteractive.materialcalendarview.sample.decorators.EventDecorator;
 import com.prolificinteractive.materialcalendarview.sample.decorators.HighlightWeekendsDecorator;
 import com.prolificinteractive.materialcalendarview.sample.decorators.MySelectorDecorator;
@@ -28,7 +28,7 @@ import butterknife.ButterKnife;
 /**
  * Shows off the most basic usage
  */
-public class BasicActivityDecorated extends AppCompatActivity implements OnDateChangedListener {
+public class BasicActivityDecorated extends AppCompatActivity implements OnDateSelectedListener {
 
     private static final DateFormat FORMATTER = SimpleDateFormat.getDateInstance();
 
@@ -65,7 +65,7 @@ public class BasicActivityDecorated extends AppCompatActivity implements OnDateC
     }
 
     @Override
-    public void onDateChanged(@NonNull MaterialCalendarView widget, CalendarDay date) {
+    public void onDateSelected(@NonNull MaterialCalendarView widget, CalendarDay date) {
 
         //If you change a decorate, you need to invalidate decorators
         oneDayDecorator.setDate(date.getDate());

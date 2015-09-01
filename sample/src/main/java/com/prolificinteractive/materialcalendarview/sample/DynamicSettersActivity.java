@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
-import com.prolificinteractive.materialcalendarview.OnDateChangedListener;
+import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -27,7 +27,7 @@ import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 
-public class DynamicSettersActivity extends AppCompatActivity implements OnDateChangedListener {
+public class DynamicSettersActivity extends AppCompatActivity implements OnDateSelectedListener {
 
     private static final DateFormat FORMATTER = SimpleDateFormat.getDateInstance();
 
@@ -46,7 +46,7 @@ public class DynamicSettersActivity extends AppCompatActivity implements OnDateC
     }
 
     @Override
-    public void onDateChanged(@NonNull MaterialCalendarView widget, @Nullable CalendarDay date) {
+    public void onDateSelected(@NonNull MaterialCalendarView widget, @Nullable CalendarDay date) {
         Toast.makeText(this, date == null ? "Unselected" : FORMATTER.format(date.getDate()), Toast.LENGTH_SHORT).show();
     }
 

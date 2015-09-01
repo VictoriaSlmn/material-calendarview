@@ -31,8 +31,7 @@ class MonthView extends ViewGroup implements View.OnClickListener {
     protected static final int DEFAULT_MONTH_TILE_HEIGHT = DEFAULT_MAX_WEEKS + 1;
 
     public interface Callbacks {
-
-        void onDateChanged(CalendarDay date);
+        void onDateSelected(CalendarDay date);
     }
 
     private Callbacks callbacks;
@@ -225,14 +224,10 @@ class MonthView extends ViewGroup implements View.OnClickListener {
             DayView dayView = (DayView) v;
             dayView.setChecked(true);
 
-            CalendarDay date = dayView.getDate();
-            if(date.equals(selection)) {
-                return;
-            }
-            selection = date;
+            selection = dayView.getDate();
 
             if(callbacks != null) {
-                callbacks.onDateChanged(dayView.getDate());
+                callbacks.onDateSelected(selection);
             }
         }
     }

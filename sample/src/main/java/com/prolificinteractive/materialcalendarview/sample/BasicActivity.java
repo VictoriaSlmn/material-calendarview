@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
-import com.prolificinteractive.materialcalendarview.OnDateChangedListener;
+import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 import com.prolificinteractive.materialcalendarview.OnMonthChangedListener;
 
 import java.text.DateFormat;
@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
 /**
  * Shows off the most basic usage
  */
-public class BasicActivity extends AppCompatActivity implements OnDateChangedListener, OnMonthChangedListener {
+public class BasicActivity extends AppCompatActivity implements OnDateSelectedListener, OnMonthChangedListener {
 
     private static final DateFormat FORMATTER = SimpleDateFormat.getDateInstance();
 
@@ -39,7 +39,7 @@ public class BasicActivity extends AppCompatActivity implements OnDateChangedLis
     }
 
     @Override
-    public void onDateChanged(@NonNull MaterialCalendarView widget, @Nullable CalendarDay date) {
+    public void onDateSelected(@NonNull MaterialCalendarView widget, @Nullable CalendarDay date) {
         if(date == null) {
             textView.setText(null);
         }

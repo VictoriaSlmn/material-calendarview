@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
-import com.prolificinteractive.materialcalendarview.OnDateChangedListener;
+import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class CustomizeXmlActivity extends AppCompatActivity implements OnDateChangedListener {
+public class CustomizeXmlActivity extends AppCompatActivity implements OnDateSelectedListener {
 
     private static final DateFormat FORMATTER = SimpleDateFormat.getDateInstance();
 
@@ -32,7 +32,7 @@ public class CustomizeXmlActivity extends AppCompatActivity implements OnDateCha
     }
 
     @Override
-    public void onDateChanged(@NonNull MaterialCalendarView widget, CalendarDay date) {
+    public void onDateSelected(@NonNull MaterialCalendarView widget, CalendarDay date) {
         textView.setText(FORMATTER.format(date.getDate()));
     }
 
